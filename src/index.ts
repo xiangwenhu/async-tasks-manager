@@ -1,4 +1,4 @@
-import PromiseTasksManager from "./PromiseTasksManager";
+import AsyncTasksManager from "./AsyncTasksManager";
 import TasksManager from "./TasksManager";
 import { TasksCreator } from "./types";
 
@@ -8,9 +8,9 @@ export function create(createFn: TasksCreator): TasksManager {
     return manager;
 }
 
-export function createPromise(createFn: TasksCreator): PromiseTasksManager {
+export function createPromise(createFn: TasksCreator): AsyncTasksManager {
     const tasks = createFn();
-    const manager = new PromiseTasksManager(tasks);
+    const manager = new AsyncTasksManager(tasks);
     return manager;
 }
 

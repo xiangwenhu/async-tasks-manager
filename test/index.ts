@@ -1,4 +1,4 @@
-import { create, createPromise } from "../index";
+import { create, createPromise } from "../src/index";
 
 const tasks = Array.from({ length: 5 }, (v, index) => {
     return index

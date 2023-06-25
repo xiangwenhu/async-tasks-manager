@@ -1,7 +1,7 @@
 import TasksManager from "./TasksManager";
 import { CommonTask, ManagerOptions, TaskResult } from "./types";
 
-export default class PromiseTasksManager extends TasksManager {
+export default class AsyncTasksManager extends TasksManager {
     constructor(tasks: CommonTask[]) {
         super(tasks);
     }
@@ -11,7 +11,6 @@ export default class PromiseTasksManager extends TasksManager {
             const results: TaskResult<R>[] = [];
 
             function onTaskComplete(task: CommonTask, result: R) {
-                console.log(`Task complete: ${task.name}:`, result);
                 results.push({
                     success: true,
                     id: task.id,
@@ -22,7 +21,6 @@ export default class PromiseTasksManager extends TasksManager {
             }
 
             function onTaskError(task: CommonTask, error: any) {
-                console.log(`Task error: ${task.name}:`, error && error.message);
                 results.push({
                     success: false,
                     id: task.id,
